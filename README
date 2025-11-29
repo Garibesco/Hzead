@@ -1,0 +1,46 @@
+# Hzead
+
+	A game by Francesco Garibaldi, 2025
+
+----------------------------------------------------------------------------------------
+
+## Project Contents:
+
+	**Code and general assets**
+
+		These can be used, modified, and redistributed according to the main project license (see LICENSE in the root folder).
+
+	**Music and Characters**
+
+		Files in the Asset/Music/ and Asset/Character/ folders are protected separately by copyright.
+
+			Redistribution or sale of these files is not allowed.
+
+			Modification or remixing is not allowed.
+
+			They can only be used for personal use or for viewing/listening purposes.
+
+			See the LICENSE files inside each folder for more details.
+
+----------------------------------------------------------------------------------------
+
+### How to Contribute:
+
+	If you want to contribute to the project (code or non-protected assets):
+
+		1. Fork the repository
+
+		2. Create a branch for your changes
+
+		3. Open a pull request describing your modifications
+
+	Note: Contributions including protected music or characters must be approved separately.
+
+----------------------------------------------------------------------------------------
+
+#### License:
+
+	**Main project (code and general assets):** LICENSE
+
+	**Music and Characters:** see the respective folders (Asset/Music/LICENSE, Asset/Character/LICENSE)
+
