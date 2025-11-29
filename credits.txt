@@ -1,0 +1,51 @@
+===========================
+       CREDITS
+===========================
+
+FONTS:
+- Glitch Goblin
+  Author: T. C. White (Pixel Sagas)
+  License: Free for commercial use, attribution recommended
+  Website: https://www.pixelsagas.com
+
+- WC Speed BTA
+  Author: Christophe Feray (WC Fonts)
+  License: Freeware / CC BY-ND 3.0
+  Website: http://www.wcfonts.com
+
+- Gontserrat
+  Author: Gabe Classon / Ospiro Enterprises
+  License: SIL Open Font License 1.1
+  Website: https://gabeclasson.com/projects/gontserrat/
+
+GRAPHICS / ASSETS:
+- Free Dark Crystal Shrine
+  Author: Frakassets
+  License: CC BY 4.0
+  Website: https://frakassets.itch.io/free-dark-crystal-shrine
+
+- Wasteland City – Parallax Background
+  Author: owmyknees
+  License: Name Your Own Price, commercial use allowed, attribution optional
+  Website: https://owmyknees.itch.io/wasteland-city-parallax-background
+
+- Sacred Lands – Parallax Background
+  Author: owmyknees
+  License: Name Your Own Price, commercial use allowed, attribution optional
+  Website: https://owmyknees.itch.io/sacred-lands-parallax-background
+
+- Gamepad UI / Controller Prompts Pack
+  Author: greatdocbrown
+  License: CC0 (Public Domain)
+  Website: https://greatdocbrown.itch.io/gamepad-ui
+
+- GamePad Guide Template
+  Author: RabbitTeaParty
+  License: Name Your Own Price, PSD template for controller / keyboard, editable
+  Website: https://rabbitteaparty.itch.io/gamepad-guide-template
+
+- Godot Asset #2411
+  Author: Godot Asset Library
+  License: MIT
+  Website: https://godotengine.org/asset-library/asset/2411
+===========================

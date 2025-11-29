@@ -1,0 +1,631 @@
+[gd_scene load_steps=122 format=3 uid="uid://m1ej6nqwyskr"]
+
+[ext_resource type="Script" uid="uid://1i8fx7e16mky" path="res://Script/player.gd" id="1_c7h21"]
+[ext_resource type="Texture2D" uid="uid://bnhhg5ikk8pfq" path="res://Asset/Character/HF_attack/HF_attack-02.png" id="2_6q824"]
+[ext_resource type="Texture2D" uid="uid://bgbu240pi8sl4" path="res://Asset/Character/HF_attack/HF_attack-01.png" id="2_filqq"]
+[ext_resource type="Texture2D" uid="uid://c3y0fey78701" path="res://Asset/Character/Idle/idle-01.png" id="3_pmp2f"]
+[ext_resource type="Texture2D" uid="uid://cq4ks0to0padi" path="res://Asset/Character/Idle/idle-02.png" id="4_3pik8"]
+[ext_resource type="Texture2D" uid="uid://cd87d0itnxovo" path="res://Asset/Character/LF_attack/LF_attack-01.png" id="4_7p7ba"]
+[ext_resource type="Texture2D" uid="uid://c17cp5llxhygh" path="res://Asset/Character/LF_attack/LF_attack-02.png" id="4_c7h21"]
+[ext_resource type="Texture2D" uid="uid://dva25khwqy76q" path="res://Asset/Character/down_LF_attack/down_LF_attack.png" id="5_eol6p"]
+[ext_resource type="Texture2D" uid="uid://b0fq8hva1b47t" path="res://Asset/Character/Attuning/attuning-1.png" id="6_lt4d1"]
+[ext_resource type="Texture2D" uid="uid://0lph2u3gj1wn" path="res://Asset/Character/Fall/fall-01.png" id="6_q3xbo"]
+[ext_resource type="Texture2D" uid="uid://ccd6q3542cklu" path="res://Asset/Character/Attuning/attuning-2.png" id="7_kqbyl"]
+[ext_resource type="Texture2D" uid="uid://bo70qdrx7tqfn" path="res://Asset/Character/Fall/fall-02.png" id="7_parcb"]
+[ext_resource type="Texture2D" uid="uid://boqep4duklfoy" path="res://Asset/Character/Jump/jump.png" id="10_4b564"]
+[ext_resource type="Texture2D" uid="uid://dbv3or8lg48dl" path="res://Asset/Character/Walk/walk-01.png" id="11_g743h"]
+[ext_resource type="Texture2D" uid="uid://1girtptvqyif" path="res://Asset/Character/Walk/walk-02.png" id="12_wd545"]
+[ext_resource type="Texture2D" uid="uid://des7cl0tib0xe" path="res://Asset/Character/Walk/walk-03.png" id="13_e3d6m"]
+[ext_resource type="Texture2D" uid="uid://b2bw6wqftt6mg" path="res://Asset/Character/Walk/walk-04.png" id="14_oi07u"]
+[ext_resource type="Texture2D" uid="uid://cq21wg6va82ed" path="res://Asset/Character/Death/Death-Sheet.png" id="14_uem77"]
+[ext_resource type="PackedScene" uid="uid://ccctq73o6wk5p" path="res://Scene/input_manager.tscn" id="16_mymiu"]
+[ext_resource type="Texture2D" uid="uid://bmh1s5mdtygxx" path="res://Asset/Options/commands/cross.png" id="17_7yuuv"]
+[ext_resource type="Texture2D" uid="uid://t6ne8e8cbxxd" path="res://Asset/Options/commands/y.png" id="18_2mnku"]
+[ext_resource type="Texture2D" uid="uid://dajbbjv6fxtfq" path="res://Asset/Options/commands/downy.png" id="19_xqgwv"]
+[ext_resource type="Texture2D" uid="uid://bmvxbbxwsqynl" path="res://Asset/Options/commands/b.png" id="20_nv12e"]
+[ext_resource type="Texture2D" uid="uid://b5goabegr8mqf" path="res://Asset/Options/commands/a.png" id="21_7yuuv"]
+[ext_resource type="Texture2D" uid="uid://bxk08pcskxl4r" path="res://Asset/Options/commands/square.png" id="21_ptfir"]
+[ext_resource type="Texture2D" uid="uid://cvwtl8c5q0pij" path="res://Asset/Options/commands/triangle.png" id="22_7l8l3"]
+[ext_resource type="Texture2D" uid="uid://cqdnqlrmoeqm1" path="res://Asset/Options/commands/downtriangle.png" id="23_to1tm"]
+[ext_resource type="Texture2D" uid="uid://cspbcumke08ea" path="res://Asset/Options/commands/circle.png" id="24_omam2"]
+[ext_resource type="Texture2D" uid="uid://dacfkybosd4rm" path="res://Asset/Options/commands/z.png" id="25_rur5f"]
+[ext_resource type="Texture2D" uid="uid://cg3lxn37ojcpi" path="res://Asset/Options/commands/x.png" id="26_6au7j"]
+[ext_resource type="Texture2D" uid="uid://dnhc53bvvmkoe" path="res://Asset/Options/commands/downx.png" id="27_vgvk3"]
+[ext_resource type="Texture2D" uid="uid://rhn62hrpniy0" path="res://Asset/Options/commands/c.png" id="28_vlmxv"]
+[ext_resource type="Texture2D" uid="uid://dy7ihfslxwl6" path="res://Asset/Options/commands/space.png" id="30_2mnku"]
+[ext_resource type="AudioStream" uid="uid://bssia6umg8mtb" path="res://Asset/Sound/Attacks/lower/c2.mp3" id="31_vgvk3"]
+[ext_resource type="Script" uid="uid://cta0um4brfim6" path="res://Script/audioattacks.gd" id="31_xqgwv"]
+[ext_resource type="AudioStream" uid="uid://c8qw0umnocapx" path="res://Asset/Sound/Attacks/low/c3.mp3" id="32_l582p"]
+[ext_resource type="AudioStream" uid="uid://d18fxqocis5qf" path="res://Asset/Sound/Attacks/lower/cs2.mp3" id="32_vlmxv"]
+[ext_resource type="AudioStream" uid="uid://c45cy53tovg2a" path="res://Asset/Sound/Attacks/lower/d2.mp3" id="33_7viqf"]
+[ext_resource type="AudioStream" uid="uid://daf4jgty72sf2" path="res://Asset/Sound/Attacks/low/cs3.mp3" id="33_c65g7"]
+[ext_resource type="AudioStream" uid="uid://cudhx2t4xxh13" path="res://Asset/Sound/Attacks/lower/ds2.mp3" id="34_excmt"]
+[ext_resource type="AudioStream" uid="uid://wtsumina1p3r" path="res://Asset/Sound/Attacks/low/d3.mp3" id="34_xaomx"]
+[ext_resource type="AudioStream" uid="uid://b5epbtq8o7wox" path="res://Asset/Sound/Attacks/low/ds3.mp3" id="35_ayqgi"]
+[ext_resource type="AudioStream" uid="uid://bb12h2vsfj55q" path="res://Asset/Sound/Attacks/lower/e2.mp3" id="35_l582p"]
+[ext_resource type="AudioStream" uid="uid://cajxvturpv1d4" path="res://Asset/Sound/Attacks/low/e3.mp3" id="36_atyyn"]
+[ext_resource type="AudioStream" uid="uid://ctc7bh646ew5b" path="res://Asset/Sound/Attacks/lower/f2.mp3" id="36_c65g7"]
+[ext_resource type="AudioStream" uid="uid://daasdrkxyp4gd" path="res://Asset/Sound/Attacks/low/f3.mp3" id="37_4p6e1"]
+[ext_resource type="AudioStream" uid="uid://dargd6rnu83ao" path="res://Asset/Sound/Attacks/lower/fs2.mp3" id="37_xaomx"]
+[ext_resource type="AudioStream" uid="uid://cnnhbu3rgr1j" path="res://Asset/Sound/Attacks/lower/g2.mp3" id="38_ayqgi"]
+[ext_resource type="AudioStream" uid="uid://cajb58ag4xmy4" path="res://Asset/Sound/Attacks/low/fs3.mp3" id="38_ol6yn"]
+[ext_resource type="AudioStream" uid="uid://hl2vebbpakgy" path="res://Asset/Sound/Attacks/lower/gs2.mp3" id="39_atyyn"]
+[ext_resource type="AudioStream" uid="uid://coftlrj8w25n1" path="res://Asset/Sound/Attacks/low/g3.mp3" id="39_c3142"]
+[ext_resource type="AudioStream" uid="uid://bpnsc42cfn137" path="res://Asset/Sound/Attacks/low/gd3.mp3" id="40_ujpcb"]
+[ext_resource type="AudioStream" uid="uid://kc72qp00oyc8" path="res://Asset/Sound/Attacks/low/a3.mp3" id="41_hnjos"]
+[ext_resource type="AudioStream" uid="uid://dj8mglgifq7uf" path="res://Asset/Sound/Attacks/low/as3.mp3" id="42_2tm7b"]
+[ext_resource type="AudioStream" uid="uid://dlo3qyr3k1s1c" path="res://Asset/Sound/Attacks/low/b3.mp3" id="43_x2cii"]
+[ext_resource type="AudioStream" uid="uid://cs26lt77wg133" path="res://Asset/Sound/Attacks/lower/a2.mp3" id="53_gb2it"]
+[ext_resource type="AudioStream" uid="uid://c7au21uq0a3e3" path="res://Asset/Sound/Attacks/lower/as2.mp3" id="54_i14f5"]
+[ext_resource type="AudioStream" uid="uid://cvnsrp1uw0tsl" path="res://Asset/Sound/Attacks/lower/b2.mp3" id="55_lt4d1"]
+[ext_resource type="AudioStream" uid="uid://c7grwenq3k4kd" path="res://Asset/Sound/Attacks/high/c5.mp3" id="56_kqbyl"]
+[ext_resource type="AudioStream" uid="uid://cvaxigdx5twki" path="res://Asset/Sound/Attacks/high/cs5.mp3" id="57_lw6w6"]
+[ext_resource type="AudioStream" uid="uid://d2plo8gqttbyl" path="res://Asset/Sound/Attacks/high/d5.mp3" id="58_uem77"]
+[ext_resource type="AudioStream" uid="uid://d31ugefxqfa31" path="res://Asset/Sound/Attacks/high/ds5.mp3" id="59_tjcpt"]
+[ext_resource type="AudioStream" uid="uid://dxl55irmh54p7" path="res://Asset/Sound/Attacks/high/e5.mp3" id="60_eplha"]
+[ext_resource type="AudioStream" uid="uid://dl1a6r54f3w5g" path="res://Asset/Sound/Attacks/high/f5.mp3" id="61_xum0w"]
+[ext_resource type="AudioStream" uid="uid://lxneqm7f5seh" path="res://Asset/Sound/Attacks/high/fs5.mp3" id="62_prspk"]
+[ext_resource type="AudioStream" uid="uid://dqqjvtrl5qifj" path="res://Asset/Sound/Attacks/high/g5.mp3" id="63_xbsb6"]
+[ext_resource type="AudioStream" uid="uid://bk0meo5bnshc1" path="res://Asset/Sound/Attacks/high/gs5.mp3" id="64_ehr6s"]
+[ext_resource type="AudioStream" uid="uid://b8tdisciw7ewy" path="res://Asset/Sound/Attacks/high/a5.mp3" id="65_takpv"]
+[ext_resource type="AudioStream" uid="uid://fi7m0fkrb4j7" path="res://Asset/Sound/Attacks/high/as5.mp3" id="66_3k5kf"]
+[ext_resource type="AudioStream" uid="uid://c85tr4ugmf8t3" path="res://Asset/Sound/Attacks/high/b5.mp3" id="67_e5xdc"]
+[ext_resource type="Texture2D" uid="uid://c105xyjrerxla" path="res://Asset/Objects/low_bullet-Sheet.png" id="70_kqbyl"]
+[ext_resource type="AudioStream" uid="uid://1ldevlic3tkm" path="res://Asset/Sound/jump/jump1.mp3" id="71_filqq"]
+[ext_resource type="Script" uid="uid://bu4ni5sq7mk3i" path="res://Script/hurtbox.gd" id="71_lw6w6"]
+[ext_resource type="AudioStream" uid="uid://cd3omb4mqf6td" path="res://Asset/Sound/Steps/step1.mp3" id="71_sgj4h"]
+[ext_resource type="AudioStream" uid="uid://btndhgfinb63n" path="res://Asset/Sound/death.mp3" id="71_tjcpt"]
+[ext_resource type="AudioStream" uid="uid://cye5jt80arlrs" path="res://Asset/Sound/jump/jump2.mp3" id="72_7p7ba"]
+[ext_resource type="AudioStream" uid="uid://bjew51fy32m0e" path="res://Asset/Sound/damage1.mp3" id="72_ehr6s"]
+[ext_resource type="AudioStream" uid="uid://d4bfbx2bmnog4" path="res://Asset/Sound/Steps/step2.mp3" id="72_hswua"]
+[ext_resource type="AudioStream" uid="uid://bmykkipnqljj" path="res://Asset/Sound/jump/jump3.mp3" id="73_cy2ba"]
+[ext_resource type="AudioStream" uid="uid://db2afkcikvb83" path="res://Asset/Sound/Steps/step3.mp3" id="73_m1f50"]
+[ext_resource type="AudioStream" uid="uid://cq8yn7m66ednj" path="res://Asset/Sound/damage2.mp3" id="73_takpv"]
+[ext_resource type="AudioStream" uid="uid://c0jukvlk6un33" path="res://Asset/Sound/damage3.mp3" id="74_3k5kf"]
+[ext_resource type="AudioStream" uid="uid://dspqct7h0xv57" path="res://Asset/Sound/Steps/step4.mp3" id="74_aw6l2"]
+[ext_resource type="AudioStream" uid="uid://c8qyvxwclqta7" path="res://Asset/Sound/jump/jump4.mp3" id="74_e5w1a"]
+[ext_resource type="AudioStream" uid="uid://ddhplhe33nt1v" path="res://Asset/Sound/jump/jump5.mp3" id="75_5hi6u"]
+[ext_resource type="AudioStream" uid="uid://bxhqqcivpn6v3" path="res://Asset/Sound/Steps/step5.mp3" id="75_jxgs2"]
+[ext_resource type="AudioStream" uid="uid://bs4ys1ryqqr35" path="res://Asset/Sound/Steps/step6.mp3" id="76_filqq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prspk"]
+atlas = ExtResource("14_uem77")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbsb6"]
+atlas = ExtResource("14_uem77")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehr6s"]
+atlas = ExtResource("14_uem77")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_takpv"]
+atlas = ExtResource("14_uem77")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3k5kf"]
+atlas = ExtResource("14_uem77")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5xdc"]
+atlas = ExtResource("14_uem77")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgj4h"]
+atlas = ExtResource("14_uem77")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hswua"]
+atlas = ExtResource("14_uem77")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1f50"]
+atlas = ExtResource("14_uem77")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw6l2"]
+atlas = ExtResource("14_uem77")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxgs2"]
+atlas = ExtResource("14_uem77")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_filqq"]
+atlas = ExtResource("14_uem77")
+region = Rect2(1408, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7p7ba"]
+atlas = ExtResource("14_uem77")
+region = Rect2(1536, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cy2ba"]
+atlas = ExtResource("14_uem77")
+region = Rect2(1664, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5w1a"]
+atlas = ExtResource("14_uem77")
+region = Rect2(1792, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hi6u"]
+atlas = ExtResource("14_uem77")
+region = Rect2(1920, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3dep"]
+atlas = ExtResource("14_uem77")
+region = Rect2(2048, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fhgm"]
+atlas = ExtResource("14_uem77")
+region = Rect2(2176, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6g6u0"]
+atlas = ExtResource("14_uem77")
+region = Rect2(2304, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybo4c"]
+atlas = ExtResource("14_uem77")
+region = Rect2(2432, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yubv"]
+atlas = ExtResource("14_uem77")
+region = Rect2(2560, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j25v1"]
+atlas = ExtResource("14_uem77")
+region = Rect2(2688, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7fjt"]
+atlas = ExtResource("14_uem77")
+region = Rect2(2816, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_adgam"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_filqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6q824")
+}],
+"loop": true,
+"name": &"HF_attack",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_7p7ba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c7h21")
+}],
+"loop": true,
+"name": &"LF_attack",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_lt4d1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kqbyl")
+}],
+"loop": true,
+"name": &"attuning",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prspk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbsb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehr6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_takpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3k5kf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5xdc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgj4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hswua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1f50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw6l2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxgs2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_filqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7p7ba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cy2ba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5w1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hi6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3dep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fhgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6g6u0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybo4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yubv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j25v1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7fjt")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_eol6p")
+}],
+"loop": true,
+"name": &"down_LF_attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_q3xbo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_parcb")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_lt4d1")
+}],
+"loop": true,
+"name": &"focus",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pmp2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3pik8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_4b564")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_g743h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wd545")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_e3d6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_oi07u")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1hv4"]
+size = Vector2(22, 60)
+
+[sub_resource type="AudioStream" id="AudioStream_2mnku"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lt4d1"]
+size = Vector2(92, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lw6w6"]
+atlas = ExtResource("70_kqbyl")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uem77"]
+atlas = ExtResource("70_kqbyl")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjcpt"]
+atlas = ExtResource("70_kqbyl")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eplha"]
+atlas = ExtResource("70_kqbyl")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xum0w"]
+atlas = ExtResource("70_kqbyl")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_prspk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lw6w6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uem77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjcpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eplha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xum0w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqbyl"]
+size = Vector2(22, 60)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_c7h21")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_adgam")
+animation = &"HF_attack"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 6)
+shape = SubResource("RectangleShape2D_g1hv4")
+
+[node name="ControlSupport" type="Node2D" parent="."]
+
+[node name="InputManager" parent="ControlSupport" instance=ExtResource("16_mymiu")]
+
+[node name="Xbox" type="Node2D" parent="ControlSupport"]
+
+[node name="Light" type="Sprite2D" parent="ControlSupport/Xbox"]
+visible = false
+position = Vector2(0, -70)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("17_7yuuv")
+
+[node name="Heavy" type="Sprite2D" parent="ControlSupport/Xbox"]
+visible = false
+position = Vector2(0, -70)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("18_2mnku")
+
+[node name="Down_Heavy" type="Sprite2D" parent="ControlSupport/Xbox"]
+visible = false
+position = Vector2(0, -70)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("19_xqgwv")
+
+[node name="Attune" type="Sprite2D" parent="ControlSupport/Xbox"]
+visible = false
+position = Vector2(0, -70)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("20_nv12e")
+
+[node name="Jump" type="Sprite2D" parent="ControlSupport/Xbox"]
+visible = false
+position = Vector2(0, -70)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("21_7yuuv")
+
+[node name="Playstation" type="Node2D" parent="ControlSupport"]
+
+[node name="Light" type="Sprite2D" parent="ControlSupport/Playstation"]
+visible = false
+position = Vector2(0, -70)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("21_ptfir")
+
+[node name="Heavy" type="Sprite2D" parent="ControlSupport/Playstation"]
+visible = false
+position = Vector2(0, -70)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("22_7l8l3")
+
+[node name="Down_Heavy" type="Sprite2D" parent="ControlSupport/Playstation"]
+visible = false
+position = Vector2(0, -70)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("23_to1tm")
+
+[node name="Attune" type="Sprite2D" parent="ControlSupport/Playstation"]
+visible = false
+position = Vector2(0, -70)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("24_omam2")
+
+[node name="Jump" type="Sprite2D" parent="ControlSupport/Playstation"]
+visible = false
+position = Vector2(0, -70)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("17_7yuuv")
+
+[node name="Keyboard" type="Node2D" parent="ControlSupport"]
+
+[node name="Light" type="Sprite2D" parent="ControlSupport/Keyboard"]
+visible = false
+position = Vector2(0, -70)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("25_rur5f")
+
+[node name="Heavy" type="Sprite2D" parent="ControlSupport/Keyboard"]
+visible = false
+position = Vector2(0, -70)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("26_6au7j")
+
+[node name="Down_Heavy" type="Sprite2D" parent="ControlSupport/Keyboard"]
+visible = false
+position = Vector2(0, -70)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("27_vgvk3")
+
+[node name="Attune" type="Sprite2D" parent="ControlSupport/Keyboard"]
+visible = false
+position = Vector2(0, -70)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("28_vlmxv")
+
+[node name="Jump" type="Sprite2D" parent="ControlSupport/Keyboard"]
+visible = false
+position = Vector2(0, -70)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("30_2mnku")
+
+[node name="LowAttacks" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStream_2mnku")
+volume_db = 10.0
+script = ExtResource("31_xqgwv")
+streams = Array[AudioStream]([ExtResource("32_l582p"), ExtResource("33_c65g7"), ExtResource("34_xaomx"), ExtResource("35_ayqgi"), ExtResource("36_atyyn"), ExtResource("37_4p6e1"), ExtResource("38_ol6yn"), ExtResource("39_c3142"), ExtResource("40_ujpcb"), ExtResource("41_hnjos"), ExtResource("42_2tm7b"), ExtResource("43_x2cii")])
+
+[node name="LowerAttacks" type="AudioStreamPlayer2D" parent="."]
+volume_db = 10.0
+script = ExtResource("31_xqgwv")
+streams = Array[AudioStream]([ExtResource("31_vgvk3"), ExtResource("32_vlmxv"), ExtResource("33_7viqf"), ExtResource("34_excmt"), ExtResource("35_l582p"), ExtResource("36_c65g7"), ExtResource("37_xaomx"), ExtResource("38_ayqgi"), ExtResource("39_atyyn"), ExtResource("53_gb2it"), ExtResource("54_i14f5"), ExtResource("55_lt4d1")])
+
+[node name="HighAttacks" type="AudioStreamPlayer2D" parent="."]
+volume_db = 10.0
+script = ExtResource("31_xqgwv")
+streams = Array[AudioStream]([ExtResource("56_kqbyl"), ExtResource("57_lw6w6"), ExtResource("58_uem77"), ExtResource("59_tjcpt"), ExtResource("60_eplha"), ExtResource("61_xum0w"), ExtResource("62_prspk"), ExtResource("63_xbsb6"), ExtResource("64_ehr6s"), ExtResource("65_takpv"), ExtResource("66_3k5kf"), ExtResource("67_e5xdc")])
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("31_xqgwv")
+streams = Array[AudioStream]([ExtResource("71_filqq"), ExtResource("72_7p7ba"), ExtResource("73_cy2ba"), ExtResource("74_e5w1a"), ExtResource("75_5hi6u")])
+
+[node name="Steps" type="AudioStreamPlayer2D" parent="."]
+volume_db = -4.0
+script = ExtResource("31_xqgwv")
+streams = Array[AudioStream]([ExtResource("71_sgj4h"), ExtResource("72_hswua"), ExtResource("73_m1f50"), ExtResource("74_aw6l2"), ExtResource("75_jxgs2"), ExtResource("76_filqq")])
+
+[node name="Timer" type="Timer" parent="Steps"]
+process_callback = 0
+one_shot = true
+
+[node name="Damage" type="AudioStreamPlayer2D" parent="."]
+volume_db = 10.0
+script = ExtResource("31_xqgwv")
+streams = Array[AudioStream]([ExtResource("72_ehr6s"), ExtResource("73_takpv"), ExtResource("74_3k5kf")])
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("71_tjcpt")
+volume_db = 15.0
+
+[node name="Timer" type="Node" parent="."]
+
+[node name="Attuning" type="Timer" parent="Timer"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Down_attack" type="Timer" parent="Timer"]
+wait_time = 0.75
+
+[node name="Walkin" type="Timer" parent="Timer"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Hurt" type="Timer" parent="Timer"]
+wait_time = 0.3
+one_shot = true
+
+[node name="death" type="Timer" parent="Timer"]
+wait_time = 3.0
+one_shot = true
+
+[node name="light" type="Timer" parent="Timer"]
+wait_time = 0.6
+one_shot = true
+
+[node name="heavy_d" type="Timer" parent="Timer"]
+wait_time = 0.3
+one_shot = true
+
+[node name="bounce" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bounce"]
+position = Vector2(-5, 50)
+shape = SubResource("RectangleShape2D_lt4d1")
+disabled = true
+
+[node name="wave" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-18, 50.14463)
+rotation = 1.5707964
+scale = Vector2(1.8415687, 2.9283185)
+sprite_frames = SubResource("SpriteFrames_prspk")
+frame_progress = 0.39645365
+
+[node name="hurtbox" type="Area2D" parent="."]
+script = ExtResource("71_lw6w6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(-3, 6)
+shape = SubResource("RectangleShape2D_kqbyl")
+
+[node name="health_bar" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="health_bar"]
+offset_left = 58.0
+offset_top = 60.0
+offset_right = 324.0
+offset_bottom = 100.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="device_changed" from="ControlSupport/InputManager" to="." method="_on_input_manager_device_changed"]
+[connection signal="timeout" from="Timer/Attuning" to="." method="_on_attuning_timeout"]
+[connection signal="timeout" from="Timer/Down_attack" to="." method="_on_down_attack_timeout"]
+[connection signal="timeout" from="Timer/Walkin" to="." method="_on_walkin_timeout"]
+[connection signal="timeout" from="Timer/Hurt" to="." method="_on_hurt_timeout"]
+[connection signal="timeout" from="Timer/death" to="." method="_on_death_timeout"]
+[connection signal="timeout" from="Timer/light" to="." method="_on_light_timeout"]
+[connection signal="timeout" from="Timer/heavy_d" to="." method="_on_heavy_d_timeout"]
+[connection signal="body_entered" from="bounce" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,243 @@
+[gd_scene load_steps=17 format=3 uid="uid://cd15c3jlwkhmx"]
+
+[ext_resource type="PackedScene" uid="uid://m1ej6nqwyskr" path="res://Scene/Player.tscn" id="1_q4otm"]
+[ext_resource type="PackedScene" uid="uid://v425ehsohatn" path="res://Scene/Crystal.tscn" id="2_68w0i"]
+[ext_resource type="PackedScene" uid="uid://blfew8bkfilxt" path="res://Scene/parallax2.tscn" id="2_a0plq"]
+[ext_resource type="PackedScene" uid="uid://dunie6obdxk55" path="res://Scene/Crate.tscn" id="3_vkl2j"]
+
+[sub_resource type="GDScript" id="GDScript_w8vpy"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	#$player/AnimationPlayer.play(\"walkin_dx\")
+	$player.set_key(Array([0, 2, 3, 5, 7, 8, 10]))
+	$player/Fade/AnimationPlayer.play(\"fadein\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta: float) -> void:
+	#pass
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Player:
+		body.set_gravity(\"water\")
+		print(\"now in water\")
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body is Player:
+		body.set_gravity(\"normal\")
+		print(\"now out of water\")
+
+
+func _on_player_death() -> void:
+	$player/Fade/AnimationPlayer.play(\"fadeout\")
+	await get_tree().create_timer(2).timeout
+	get_tree().reload_current_scene()
+"
+
+[sub_resource type="Animation" id="Animation_4ckpx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_47k5r"]
+resource_name = "fadein"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 1.4333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hag5k"]
+resource_name = "fadeout"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p1wrw"]
+resource_name = "quickfadein"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hjh75"]
+resource_name = "quickfadeout"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_shpw1"]
+_data = {
+&"RESET": SubResource("Animation_4ckpx"),
+&"fadein": SubResource("Animation_47k5r"),
+&"fadeout": SubResource("Animation_hag5k"),
+&"quickfadein": SubResource("Animation_p1wrw"),
+&"quickfadeout": SubResource("Animation_hjh75")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1aoan"]
+size = Vector2(1717.5, 82)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_q4otm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_71d8t"]
+size = Vector2(120, 938)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_nxusl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkl2j"]
+size = Vector2(529.5, 773.5)
+
+[node name="testing_ground" type="Node2D"]
+script = SubResource("GDScript_w8vpy")
+
+[node name="player" parent="." instance=ExtResource("1_q4otm")]
+position = Vector2(273, 752)
+
+[node name="Fade" type="ColorRect" parent="player"]
+z_index = 2
+offset_left = -640.0
+offset_top = -461.0
+offset_right = 641.0
+offset_bottom = 261.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="player/Fade"]
+libraries = {
+&"": SubResource("AnimationLibrary_shpw1")
+}
+
+[node name="Parallax" parent="." instance=ExtResource("2_a0plq")]
+z_index = -2
+
+[node name="bottom" type="StaticBody2D" parent="."]
+position = Vector2(253, 847)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bottom"]
+position = Vector2(263.25, 0)
+shape = SubResource("RectangleShape2D_1aoan")
+
+[node name="TextureRect" type="TextureRect" parent="bottom"]
+offset_left = -594.0
+offset_top = -41.0
+offset_right = 1132.0
+offset_bottom = 84.0
+texture = SubResource("CanvasTexture_q4otm")
+
+[node name="top" type="StaticBody2D" parent="."]
+position = Vector2(244, 35)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="top"]
+position = Vector2(263.25, 0)
+shape = SubResource("RectangleShape2D_1aoan")
+
+[node name="TextureRect" type="TextureRect" parent="top"]
+offset_left = -594.0
+offset_top = -41.0
+offset_right = 1132.0
+offset_bottom = 84.0
+texture = SubResource("CanvasTexture_q4otm")
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1318, 459)
+shape = SubResource("RectangleShape2D_71d8t")
+
+[node name="TextureRect" type="TextureRect" parent="StaticBody2D"]
+offset_left = 1258.0
+offset_top = 4.0
+offset_right = 1373.0
+offset_bottom = 931.0
+texture = SubResource("CanvasTexture_nxusl")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(300, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-573, 459)
+shape = SubResource("RectangleShape2D_71d8t")
+
+[node name="TextureRect" type="TextureRect" parent="StaticBody2D2"]
+offset_left = -633.0
+offset_top = 4.0
+offset_right = -518.0
+offset_bottom = 931.0
+texture = SubResource("CanvasTexture_nxusl")
+
+[node name="Crystal" parent="." instance=ExtResource("2_68w0i")]
+position = Vector2(515, 769)
+
+[node name="Box" parent="." instance=ExtResource("3_vkl2j")]
+position = Vector2(678, 406)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1019.25, 436.25)
+shape = SubResource("RectangleShape2D_vkl2j")
+
+[node name="ColorRect" type="ColorRect" parent="Area2D"]
+offset_left = 754.0
+offset_top = 79.0
+offset_right = 1280.0
+offset_bottom = 849.0
+color = Color(0, 0, 1, 0.16862746)
+
+[node name="Crystal2" parent="." instance=ExtResource("2_68w0i")]
+position = Vector2(394, 696)
+
+[connection signal="death" from="player" to="." method="_on_player_death"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,0 +1,308 @@
+[gd_scene load_steps=30 format=3 uid="uid://dreqe36jikyxf"]
+
+[ext_resource type="Script" uid="uid://bvxja5y4m2eaw" path="res://Script/main_menu.gd" id="1_ftydy"]
+[ext_resource type="Texture2D" uid="uid://csq8fjtks24qo" path="res://Asset/Menu/buttons/start.png" id="2_47k5r"]
+[ext_resource type="AudioStream" uid="uid://bum4rfwdniove" path="res://Asset/Music/MainMenu.mp3" id="2_87ipw"]
+[ext_resource type="Texture2D" uid="uid://dwlvc8yq6y81y" path="res://Asset/Options/xbox.png" id="2_p1wrw"]
+[ext_resource type="Texture2D" uid="uid://ci20pfahpda6h" path="res://Asset/Menu/buttons/start_hovered.png" id="3_hag5k"]
+[ext_resource type="AudioStream" uid="uid://chapv0uum74nq" path="res://Asset/Sound/start.mp3" id="3_hii65"]
+[ext_resource type="Texture2D" uid="uid://bneccrmxh457k" path="res://Asset/Options/Ps5.png" id="3_hjh75"]
+[ext_resource type="Texture2D" uid="uid://h6lm7wi6ovqi" path="res://Asset/Options/Keyboard.png" id="4_0hw35"]
+[ext_resource type="Texture2D" uid="uid://d35q1r87lls4o" path="res://Asset/Menu/buttons/options.png" id="4_4ckpx"]
+[ext_resource type="Texture2D" uid="uid://bai0ebldcpwk7" path="res://Asset/Menu/logo.png" id="4_kqsxi"]
+[ext_resource type="Script" uid="uid://bcxgkkwj2u8fc" path="res://Script/button.gd" id="4_shpw1"]
+[ext_resource type="Texture2D" uid="uid://rbmuv6fhq718" path="res://Asset/Menu/buttons/options_hovered.png" id="5_shpw1"]
+[ext_resource type="Texture2D" uid="uid://dqey1la5o8oe0" path="res://Asset/Menu/buttons/Back.png" id="5_ujbs8"]
+[ext_resource type="Texture2D" uid="uid://bpa12p4cd33i" path="res://Asset/Menu/buttons/credits.png" id="6_34sut"]
+[ext_resource type="Texture2D" uid="uid://c4n7vgjq6wpu8" path="res://Asset/Menu/buttons/credits_hovered.png" id="7_fqtvk"]
+[ext_resource type="Texture2D" uid="uid://cwfqdfa5fqkqm" path="res://Asset/Menu/buttons/Quit.png" id="8_p1wrw"]
+[ext_resource type="Texture2D" uid="uid://2ahvfmi0xwj4" path="res://Asset/Menu/buttons/Quit_hovered.png" id="9_hjh75"]
+[ext_resource type="AudioStream" uid="uid://b2qnnwwclfr1b" path="res://Asset/Sound/selection.mp3" id="13_hag5k"]
+[ext_resource type="PackedScene" uid="uid://ccctq73o6wk5p" path="res://Scene/input_manager.tscn" id="19_hjh75"]
+
+[sub_resource type="GDScript" id="GDScript_ewjfp"]
+script/source = "extends TextureButton
+
+var parent
+
+func _ready() -> void:
+	parent = get_parent()
+
+func _process(delta: float) -> void:
+	if parent.visible:
+		grab_focus()
+"
+
+[sub_resource type="Animation" id="Animation_4ckpx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_47k5r"]
+resource_name = "fadein"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 1.4333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hag5k"]
+resource_name = "fadeout"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p1wrw"]
+resource_name = "quickfadein"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hjh75"]
+resource_name = "quickfadeout"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_shpw1"]
+_data = {
+&"RESET": SubResource("Animation_4ckpx"),
+&"fadein": SubResource("Animation_47k5r"),
+&"fadeout": SubResource("Animation_hag5k"),
+&"quickfadein": SubResource("Animation_p1wrw"),
+&"quickfadeout": SubResource("Animation_hjh75")
+}
+
+[sub_resource type="Animation" id="Animation_shpw1"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_34sut"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fqtvk"]
+_data = {
+&"fadein": SubResource("Animation_shpw1"),
+&"fadeout": SubResource("Animation_34sut")
+}
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_ftydy")
+
+[node name="background" type="ColorRect" parent="."]
+offset_right = 1281.0
+offset_bottom = 722.0
+color = Color(0, 0, 0, 1)
+
+[node name="Options" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 8
+
+[node name="xbox" type="Sprite2D" parent="Options"]
+visible = false
+position = Vector2(640, 361)
+texture = ExtResource("2_p1wrw")
+
+[node name="ps5" type="Sprite2D" parent="Options"]
+visible = false
+position = Vector2(640, 361)
+texture = ExtResource("3_hjh75")
+
+[node name="keyboard" type="Sprite2D" parent="Options"]
+position = Vector2(640, 361)
+texture = ExtResource("4_0hw35")
+
+[node name="TextureButton" type="TextureButton" parent="Options"]
+layout_mode = 0
+offset_left = 1134.9999
+offset_top = 483.99997
+offset_right = 1446.9999
+offset_bottom = 586.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("5_ujbs8")
+script = SubResource("GDScript_ewjfp")
+
+[node name="Main" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ButtonManager" type="Control" parent="Main"]
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Main/ButtonManager"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.07300001
+anchor_top = 0.119
+anchor_right = -0.07300001
+anchor_bottom = 0.119
+offset_left = 589.44
+offset_top = 326.32
+offset_right = 1071.4402
+offset_bottom = 866.32
+scale = Vector2(0.5, 0.5)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/ButtonManager/MarginContainer"]
+layout_mode = 2
+
+[node name="Start" type="TextureButton" parent="Main/ButtonManager/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_47k5r")
+texture_hover = ExtResource("3_hag5k")
+texture_focused = ExtResource("3_hag5k")
+script = ExtResource("4_shpw1")
+
+[node name="Options" type="TextureButton" parent="Main/ButtonManager/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_4ckpx")
+texture_hover = ExtResource("5_shpw1")
+texture_focused = ExtResource("5_shpw1")
+
+[node name="Credits" type="TextureButton" parent="Main/ButtonManager/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("6_34sut")
+texture_hover = ExtResource("7_fqtvk")
+texture_focused = ExtResource("7_fqtvk")
+
+[node name="Quit" type="TextureButton" parent="Main/ButtonManager/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("8_p1wrw")
+texture_hover = ExtResource("9_hjh75")
+texture_focused = ExtResource("9_hjh75")
+
+[node name="Logo" type="TextureRect" parent="Main/ButtonManager"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -408.0
+offset_top = -278.0
+offset_right = 5141.0
+offset_bottom = 1364.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("4_kqsxi")
+expand_mode = 1
+
+[node name="theme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_87ipw")
+autoplay = true
+parameters/looping = true
+
+[node name="start" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_hii65")
+
+[node name="Fade" type="ColorRect" parent="."]
+visible = false
+offset_right = 1281.0
+offset_bottom = 722.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fade"]
+libraries = {
+&"": SubResource("AnimationLibrary_shpw1"),
+&"quickfadein": SubResource("AnimationLibrary_fqtvk")
+}
+
+[node name="Selection" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_hag5k")
+volume_db = 5.0
+
+[node name="InputManager" parent="." instance=ExtResource("19_hjh75")]
+
+[connection signal="focus_exited" from="Options/TextureButton" to="." method="_on_texture_button_focus_exited"]
+[connection signal="pressed" from="Options/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="focus_exited" from="Main/ButtonManager/MarginContainer/VBoxContainer/Start" to="." method="_on_start_focus_exited"]
+[connection signal="pressed" from="Main/ButtonManager/MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="focus_exited" from="Main/ButtonManager/MarginContainer/VBoxContainer/Options" to="." method="_on_options_focus_exited"]
+[connection signal="pressed" from="Main/ButtonManager/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="focus_exited" from="Main/ButtonManager/MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_focus_exited"]
+[connection signal="pressed" from="Main/ButtonManager/MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="focus_exited" from="Main/ButtonManager/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_focus_exited"]
+[connection signal="pressed" from="Main/ButtonManager/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

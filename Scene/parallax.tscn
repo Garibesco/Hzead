@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnui1y4endeaa"]
+
+[ext_resource type="Texture2D" uid="uid://cggr6k0104fv" path="res://Asset/Parallax/1/SacredLands_1.png" id="1_mya6v"]
+[ext_resource type="Texture2D" uid="uid://clgjofnosv8bu" path="res://Asset/Parallax/1/SacredLands_2.png" id="2_ijhc1"]
+[ext_resource type="Texture2D" uid="uid://0t35dkcnf3l" path="res://Asset/Parallax/1/SacredLands_3.png" id="3_u8214"]
+[ext_resource type="Texture2D" uid="uid://502erst28kpn" path="res://Asset/Parallax/1/SacredLands_4.png" id="4_mf6cq"]
+[ext_resource type="Texture2D" uid="uid://dqdracvvbgud4" path="res://Asset/Parallax/1/SacredLands_5.png" id="5_x5o3r"]
+
+[node name="Parallax" type="Node2D"]
+
+[node name="view" type="Node2D" parent="."]
+scale = Vector2(2, 1.9)
+
+[node name="Parallax2D" type="Parallax2D" parent="view"]
+z_index = -2
+scroll_scale = Vector2(1, 0)
+repeat_size = Vector2(640, 0)
+repeat_times = 100000
+
+[node name="Sprite2D" type="Sprite2D" parent="view/Parallax2D"]
+texture_filter = 1
+position = Vector2(0.5, 123.15792)
+texture = ExtResource("1_mya6v")
+
+[node name="Parallax2D2" type="Parallax2D" parent="view"]
+z_index = -2
+scroll_scale = Vector2(0.5, 0.95)
+repeat_size = Vector2(640, 0)
+repeat_times = 100000
+
+[node name="Sprite2D" type="Sprite2D" parent="view/Parallax2D2"]
+texture_filter = 1
+position = Vector2(0.5, 123.15792)
+texture = ExtResource("2_ijhc1")
+
+[node name="Parallax2D3" type="Parallax2D" parent="view"]
+scroll_scale = Vector2(0.55, 0.95)
+repeat_size = Vector2(640, 0)
+repeat_times = 100000
+
+[node name="Sprite2D" type="Sprite2D" parent="view/Parallax2D3"]
+texture_filter = 1
+position = Vector2(0.5, 123.15792)
+texture = ExtResource("3_u8214")
+
+[node name="Parallax2D4" type="Parallax2D" parent="view"]
+scroll_scale = Vector2(0.6, 1)
+repeat_size = Vector2(640, 0)
+repeat_times = 100000
+
+[node name="Sprite2D" type="Sprite2D" parent="view/Parallax2D4"]
+texture_filter = 1
+position = Vector2(0.5, 123.15792)
+texture = ExtResource("4_mf6cq")
+
+[node name="Parallax2D5" type="Parallax2D" parent="view"]
+scroll_scale = Vector2(0.65, 1)
+repeat_size = Vector2(640, 0)
+repeat_times = 100000
+
+[node name="Sprite2D" type="Sprite2D" parent="view/Parallax2D5"]
+texture_filter = 1
+position = Vector2(0.5, 123.15792)
+texture = ExtResource("5_x5o3r")

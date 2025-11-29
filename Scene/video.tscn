@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxit4sgbgc1sl"]
+
+[ext_resource type="VideoStream" uid="uid://x1iq6jj5ntgl" path="res://Asset/VFX/Rick-Astley-Never-Gonna-Give-You-Up-_Official-Video_-_4K-Remaster_.ogv" id="1_e1dmn"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -823.0
+offset_top = -434.0
+offset_right = 787.0
+offset_bottom = 448.0
+color = Color(0, 0, 0, 1)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_e1dmn")
+autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="."]

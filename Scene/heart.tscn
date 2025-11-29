@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://clkjslsnql141"]
+
+[ext_resource type="Texture2D" uid="uid://cmrkoktbh706b" path="res://Asset/Health/health_down.png" id="1_rqi32"]
+[ext_resource type="Texture2D" uid="uid://7btvmaj6ushr" path="res://Asset/Health/health_up.png" id="2_km5yu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xum0w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rqi32")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_km5yu")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="heart" type="TextureRect"]
+custom_minimum_size = Vector2(50, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_xum0w")
+animation = &"up"

@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://blfew8bkfilxt"]
+
+[ext_resource type="Texture2D" uid="uid://cjcktvn2rjf54" path="res://Asset/Parallax/2/1.png" id="1_xhc4i"]
+[ext_resource type="Texture2D" uid="uid://dm2gdlm865188" path="res://Asset/Parallax/2/2.png" id="2_piaek"]
+[ext_resource type="Texture2D" uid="uid://bugld468wr16s" path="res://Asset/Parallax/2/3.png" id="3_0cmp5"]
+[ext_resource type="Texture2D" uid="uid://ccdi1r3j0oxh7" path="res://Asset/Parallax/2/4.png" id="4_gohmx"]
+[ext_resource type="Texture2D" uid="uid://dq7lyljgnnli" path="res://Asset/Parallax/2/5.png" id="5_5j1un"]
+
+[node name="Parallax" type="Node2D"]
+
+[node name="view" type="Node2D" parent="."]
+scale = Vector2(2, 1.9)
+
+[node name="Parallax2D" type="Parallax2D" parent="view"]
+scroll_scale = Vector2(0.5, 1)
+repeat_size = Vector2(640, 0)
+repeat_times = 100000
+
+[node name="Sprite2D" type="Sprite2D" parent="view/Parallax2D"]
+texture_filter = 1
+texture = ExtResource("1_xhc4i")
+centered = false
+
+[node name="Parallax2D2" type="Parallax2D" parent="view"]
+scroll_scale = Vector2(0.55, 1)
+repeat_size = Vector2(640, 0)
+repeat_times = 100000
+
+[node name="Sprite2D" type="Sprite2D" parent="view/Parallax2D2"]
+texture_filter = 1
+texture = ExtResource("2_piaek")
+centered = false
+
+[node name="Parallax2D3" type="Parallax2D" parent="view"]
+scroll_scale = Vector2(0.7, 1)
+repeat_size = Vector2(640, 0)
+repeat_times = 100000
+
+[node name="Sprite2D" type="Sprite2D" parent="view/Parallax2D3"]
+texture_filter = 1
+texture = ExtResource("3_0cmp5")
+centered = false
+
+[node name="Parallax2D4" type="Parallax2D" parent="view"]
+scroll_scale = Vector2(0.8, 1)
+repeat_size = Vector2(640, 0)
+repeat_times = 100000
+
+[node name="Sprite2D" type="Sprite2D" parent="view/Parallax2D4"]
+texture_filter = 1
+texture = ExtResource("4_gohmx")
+centered = false
+
+[node name="Parallax2D5" type="Parallax2D" parent="view"]
+scroll_scale = Vector2(0.9, 1)
+repeat_size = Vector2(640, 0)
+repeat_times = 100000
+
+[node name="Sprite2D" type="Sprite2D" parent="view/Parallax2D5"]
+texture_filter = 1
+texture = ExtResource("5_5j1un")
+centered = false

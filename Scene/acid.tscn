@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://cb1jvy3voxhne"]
+
+[ext_resource type="Texture2D" uid="uid://cgi632acu32i6" path="res://Asset/Objects/acid-Sheet.png" id="1_yjev3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1s4ch"]
+atlas = ExtResource("1_yjev3")
+region = Rect2(0, 0, 128, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc3w8"]
+atlas = ExtResource("1_yjev3")
+region = Rect2(128, 0, 128, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idssm"]
+atlas = ExtResource("1_yjev3")
+region = Rect2(256, 0, 128, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukdh5"]
+atlas = ExtResource("1_yjev3")
+region = Rect2(384, 0, 128, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g41w8"]
+atlas = ExtResource("1_yjev3")
+region = Rect2(512, 0, 128, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cdvg"]
+atlas = ExtResource("1_yjev3")
+region = Rect2(640, 0, 128, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83chv"]
+atlas = ExtResource("1_yjev3")
+region = Rect2(768, 0, 128, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lg4ll"]
+atlas = ExtResource("1_yjev3")
+region = Rect2(896, 0, 128, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y33xk"]
+atlas = ExtResource("1_yjev3")
+region = Rect2(1024, 0, 128, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hodwd"]
+atlas = ExtResource("1_yjev3")
+region = Rect2(1152, 0, 128, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0s8e2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1s4ch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc3w8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idssm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukdh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g41w8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cdvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83chv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lg4ll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y33xk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hodwd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Acid" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_0s8e2")
+autoplay = "default"
+frame_progress = 0.7090581

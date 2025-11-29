@@ -1,0 +1,258 @@
+[gd_scene load_steps=23 format=3 uid="uid://cmy0701jpjx8t"]
+
+[ext_resource type="Texture2D" uid="uid://x2i727r30bnm" path="res://Asset/Objects/Tablet.png" id="1_oxlib"]
+
+[sub_resource type="GDScript" id="GDScript_7la4p"]
+script/source = "extends Node2D
+
+@export var text = \"\"
+@export var text2 = \"\"
+@export var size = 0.6
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	$Node2D/Label.text = text
+	$Node2D/Label2.text = text2
+	$Node2D/Label.scale = Vector2(size, size)
+	$Node2D/Label2.scale = Vector2(size, size)
+	$Node2D.set_modulate(0)
+	$AnimatedSprite2D.play(\"idle\")
+	
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	$AnimationPlayer.play(\"fadeout\")
+	#$Node2D.set_modulate(1)
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	$AnimationPlayer.play(\"fadein\")
+	#$Node2D.set_modulate(0)
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1vis"]
+atlas = ExtResource("1_oxlib")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v6e1"]
+atlas = ExtResource("1_oxlib")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xfvq"]
+atlas = ExtResource("1_oxlib")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvkqm"]
+atlas = ExtResource("1_oxlib")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gumvq"]
+atlas = ExtResource("1_oxlib")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eg3tx"]
+atlas = ExtResource("1_oxlib")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5xxr"]
+atlas = ExtResource("1_oxlib")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ie4uo"]
+atlas = ExtResource("1_oxlib")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2as8n"]
+atlas = ExtResource("1_oxlib")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uj8d5"]
+atlas = ExtResource("1_oxlib")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kne8k"]
+atlas = ExtResource("1_oxlib")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1nl1"]
+atlas = ExtResource("1_oxlib")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5c6gb"]
+atlas = ExtResource("1_oxlib")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esdj1"]
+atlas = ExtResource("1_oxlib")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d0no6"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1vis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v6e1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xfvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvkqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gumvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eg3tx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5xxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ie4uo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2as8n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uj8d5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kne8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1nl1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5c6gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esdj1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_a1vis"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_oxlib"]
+resource_name = "fadein"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.93),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7la4p"]
+resource_name = "fadeout"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7v6e1"]
+_data = {
+&"RESET": SubResource("Animation_a1vis"),
+&"fadein": SubResource("Animation_oxlib"),
+&"fadeout": SubResource("Animation_7la4p")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xfvq"]
+size = Vector2(100, 55.5)
+
+[node name="Tablet" type="Node2D"]
+scale = Vector2(3, 3)
+script = SubResource("GDScript_7la4p")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-67, -80)
+
+[node name="ColorRect" type="ColorRect" parent="Node2D"]
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 136.0
+offset_bottom = 45.0
+
+[node name="ColorRect2" type="ColorRect" parent="Node2D"]
+offset_right = 135.0
+offset_bottom = 44.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Node2D"]
+texture_filter = 2
+offset_left = 3.0
+offset_top = 7.0
+offset_right = 219.0
+offset_bottom = 56.0
+scale = Vector2(0.6, 0.6)
+text = "Rumble awakens only when
+"
+
+[node name="Label2" type="Label" parent="Node2D"]
+offset_left = 3.0
+offset_top = 22.333334
+offset_right = 181.0
+offset_bottom = 45.333336
+scale = Vector2(0.6, 0.6)
+text = "foundation stands firm"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_d0no6")
+animation = &"idle"
+frame_progress = 0.07847351
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7v6e1")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, -2.75)
+shape = SubResource("RectangleShape2D_6xfvq")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

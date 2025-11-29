@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8ty37ynktjpe"]
+
+[sub_resource type="GDScript" id="GDScript_6y4it"]
+script/source = "extends Node2D
+
+@export var scroll_speed := 50.0 # pixel per secondo
+@onready var scroll_container := $ScrollContainer
+
+func _process(delta):
+	scroll_container.scroll_vertical += scroll_speed * delta
+
+	# Se vuoi farlo ricominciare quando finisce
+	var max_scroll = scroll_container.get_v_scroll()
+	if scroll_container.scroll_vertical >= max_scroll:
+		scroll_container.scroll_vertical = 0
+"
+
+[node name="Credits" type="Node2D"]
+script = SubResource("GDScript_6y4it")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_right = 1251.0
+offset_bottom = 63.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Game Design: io"
+
+[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Proramming: io"
+
+[node name="Label4" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music: io"
+
+[node name="Label5" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Pisello:i o"
+
+[node name="Label6" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Palle: tu"
+
+[node name="Label7" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Pisello & Palle: noi"
